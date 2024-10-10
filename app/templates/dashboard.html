@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block app_content %}
+<div class="container mt-5">
+    <h1 class="text-center">Dashboard</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-4">
+                <div class="card-header">Total Income</div>
+                <div class="card-body">
+                    <h5 class="card-title">$2000</h5>
+                    <p class="card-text">Your total income for this month.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-danger mb-4">
+                <div class="card-header">Total Expenses</div>
+                <div class="card-body">
+                    <h5 class="card-title">$1500</h5>
+                    <p class="card-text">Your total expenses for this month.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-4">
+                <div class="card-header">Remaining Budget</div>
+                <div class="card-body">
+                    <h5 class="card-title">$500</h5>
+                    <p class="card-text">Your remaining budget for this month.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Recent Transactions</h2>
+            <table class="table table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-10-01</td>
+                        <td>Grocery Shopping</td>
+                        <td>Food</td>
+                        <td>$150</td>
+                        <td>Expense</td>
+                    </tr>
+                    <tr>
+                        <td>2024-10-02</td>
+                        <td>Salary</td>
+                        <td>Income</td>
+                        <td>$2000</td>
+                        <td>Income</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

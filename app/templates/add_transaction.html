@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Transaction{% endblock %}
+
+{% block app_content %}
+<div class="container mt-5">
+    <h2 class="text-center">Add New Transaction</h2>
+    <form class="mt-4">
+        <!-- Description Field -->
+        <div class="form-group mb-3">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" placeholder="Enter description" required>
+        </div>
+
+        <!-- Amount Field -->
+        <div class="form-group mb-3">
+            <label for="amount">Amount</label>
+            <input type="number" class="form-control" id="amount" placeholder="Enter amount" required>
+        </div>
+
+        <!-- Category Field -->
+        <div class="form-group mb-3">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" required>
+                <option value="">Select category</option>
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="shopping">Shopping</option>
+                <option value="entertainment">Entertainment</option>
+            </select>
+        </div>
+
+        <!-- Type (Income/Expense) Field -->
+        <div class="form-group mb-3">
+            <label>Type</label>
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="type" id="income" value="income" required>
+                    <label class="form-check-label" for="income">Income</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="type" id="expense" value="expense" required>
+                    <label class="form-check-label" for="expense">Expense</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Add Transaction</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Reports{% endblock %}
+
+{% block app_content %}
+<div class="container mt-5">
+    <h1 class="text-center">Financial Reports</h1>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-4">
+                <div class="card-header">Total Income</div>
+                <div class="card-body">
+                    <h5 class="card-title">$5000</h5>
+                    <p class="card-text">Your total income for this period.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-danger mb-4">
+                <div class="card-header">Total Expenses</div>
+                <div class="card-body">
+                    <h5 class="card-title">$3000</h5>
+                    <p class="card-text">Your total expenses for this period.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-4">
+                <div class="card-header">Net Balance</div>
+                <div class="card-body">
+                    <h5 class="card-title">$2000</h5>
+                    <p class="card-text">Your net balance for this period.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center">Detailed Transactions</h2>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2024-01-01</td>
+                <td>Salary</td>
+                <td>$3000</td>
+                <td>Income</td>
+                <td>Income</td>
+            </tr>
+            <tr>
+                <td>2024-01-05</td>
+                <td>Groceries</td>
+                <td>$200</td>
+                <td>Food</td>
+                <td>Expense</td>
+            </tr>
+            <tr>
+                <td>2024-01-10</td>
+                <td>Rent</td>
+                <td>$1200</td>
+                <td>Housing</td>
+                <td>Expense</td>
+            </tr>
+            <tr>
+                <td>2024-01-15</td>
+                <td>Utilities</td>
+                <td>$150</td>
+                <td>Utilities</td>
+                <td>Expense</td>
+            </tr>
+            <tr>
+                <td>2024-01-20</td>
+                <td>Bonus</td>
+                <td>$500</td>
+                <td>Income</td>
+                <td>Income</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

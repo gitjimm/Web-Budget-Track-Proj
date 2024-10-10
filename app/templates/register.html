@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block app_content %}
+    <h1>Register</h1>
+    <form action="{{ url_for('register') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+        <div>
+            <label for="username">Username</label><br>
+            <input type="text" name="username" value="{{ form.username }}" size="32" required><br>
+            {% if form.username.errors %}
+                <span class="error">{{ form.username.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" name="email" value="{{ form.email }}" size="32" required><br>
+            {% if form.email.errors %}
+                <span class="error">{{ form.email.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <div>
+            <label for="password">Password</label><br>
+            <input type="password" name="password" value="{{ form.password }}" size="32" required><br>
+            {% if form.password.errors %}
+                <span class="error">{{ form.password.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <div>
+            <label for="confirm_password">Confirm Password</label><br>
+            <input type="password" name="confirm_password" value="{{ form.confirm_password }}" size="32" required><br>
+            {% if form.confirm_password.errors %}
+                <span class="error">{{ form.confirm_password.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}
