@@ -1,6 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request
-from app.forms import LoginForm, RegistrationForm, AddTransactionForm 
+from app.forms import LoginForm, RegistrationForm, AddTransactionForm
 
+categories = ['Food', 'Transport', 'Shopping', 'Entertainment']
 
 def register_routes(app):
     @app.route('/')
@@ -60,19 +61,35 @@ def register_routes(app):
                 flash('Please fill in all fields.', 'danger')
         return render_template('edit_transaction.html', form=form, transaction_id=transaction_id)
 
-
-    
-
-
     @app.route('/dashboard')
     def dashboard():
         return render_template('dashboard.html')
 
-
-    @app.route('/manage-categories')
+    @app.route('/manage-categories', methods=['GET', 'POST'])
     def manage_categories():
-        return render_template('manage_categories.html')
+        global categories
+        if request.method == 'POST':
+            category_name = request.form.get('category_name')
+            if category_name and category_name not in categories:
+                categories.append(category_name)
+                flash(f'Category "{category_name}" added successfully!', 'success')
+            elif category_name in categories:
+                flash(f'Category "{category_name}" already exists.', 'danger')
+            else:
+                flash('Please enter a valid category name.', 'danger')
+            return redirect(url_for('manage_categories'))
 
+        return render_template('manage_categories.html', categories=categories)
+
+    @app.route('/add-category', methods=['POST'])
+    def add_category():
+        category_name = request.form.get('category_name')
+        if category_name and category_name not in categories:
+            categories.append(category_name)
+            flash(f'Category "{category_name}" added successfully!', 'success')
+        else:
+            flash('Category already exists or invalid name.', 'danger')
+        return redirect(url_for('manage_categories'))
 
     @app.route('/reports')
     def reports():
